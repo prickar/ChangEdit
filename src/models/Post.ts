@@ -83,6 +83,7 @@ const PostSchema = new Schema<IPost, IPostModel> ({
 
 PostSchema.method('upVote', async function( this: IPost, userId: string) {
     const userIdObject = new Types.ObjectId(userId);
+    
     if (this.upVotes.includes(userIdObject)) {
         return; 
     } else if (this.downVotes.includes(userIdObject)) {

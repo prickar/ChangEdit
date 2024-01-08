@@ -37,7 +37,7 @@ export const downVote = async (req: Request, res: Response) => {
         })
     }
 
-    post.upVote(userId)
+    post.downVote(userId)
 
     const downVotedPost = await post.save();
 

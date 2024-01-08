@@ -21,10 +21,10 @@ app.get('/profile', validateToken, authController.profile);
 app.post('/posts', validateToken, postsController.create);
 app.get('/posts', postsController.getAllPosts);
 app.get('/posts/:id', postsController.getPost);
-
+app.put("/posts/:id", validateToken, postsController.updatePost);
 app.post('/posts/:postId/upVote', validateToken, votesController.upVote);
 app.post('/posts/:postId/downVote', validateToken, votesController.downVote);
-
+app.delete('/posts/:postId', validateToken, postsController.deletePost);
 
 app.post('/posts/:postId/comments', validateToken, commentsController.createComment);
 app.delete('/posts/:postId/comments/:commentId', validateToken, commentsController.deleteComment);
